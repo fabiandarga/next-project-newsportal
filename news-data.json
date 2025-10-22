@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+        "id": 1,
+        "title": "Next.js 14 veröffentlicht",
+        "excerpt": "Die neueste Version bringt viele Verbesserungen für Server Components und Rendering-Optimierungen.",
+        "content":
+            "Next.js 14 wurde als große Weiterentwicklung des beliebten React-Frameworks veröffentlicht. Die neue Version fokussiert sich auf Server Components, verbesserte Build-Zeiten und kleinere JavaScript-Bundles. Der App Router wurde weiter optimiert, um eine noch bessere Entwicklererfahrung zu bieten. Vercel, das Unternehmen hinter Next.js, berichtet von bis zu 90% schnelleren Build-Zeiten bei großen Anwendungen.",
+        "author": "Max Mustermann",
+        "date": "2025-10-15",
+        "category": "Framework",
+    },
+    {
+        "id": 2,
+        "title": "React Server Components im Einsatz",
+        "excerpt": "Wie die neuen Komponenten die Entwicklung moderner Webanwendungen grundlegend verändern.",
+        "content":
+            "React Server Components (RSC) stellen einen Paradigmenwechsel in der Frontend-Entwicklung dar. Anders als klassische React-Komponenten werden sie vollständig auf dem Server gerendert und reduzieren damit die Menge an JavaScript, die zum Browser gesendet werden muss. Dies führt zu schnelleren Ladezeiten und einer besseren Performance. Entwickler berichten von einer bis zu 30% Reduktion der Bundle-Größen und einer verbesserten User Experience, besonders auf mobilen Geräten mit langsamer Internetverbindung.",
+        "author": "Anna Schmidt",
+        "date": "2025-10-12",
+        "category": "React",
+    },
+    {
+        "id": 3,
+        "title": "Tailwind CSS wird immer beliebter",
+        "excerpt": "Das Utility-First CSS-Framework setzt sich in immer mehr Projekten durch.",
+        "content":
+            "Tailwind CSS hat sich in den letzten Jahren als eines der beliebtesten CSS-Frameworks etabliert. Der \"Utility-First\"-Ansatz, bei dem Klassen direkt im HTML verwendet werden, hat viele Anhänger gefunden. Laut einer aktuellen Umfrage unter Frontend-Entwicklern nutzen mittlerweile über 45% Tailwind CSS für neue Projekte. Besonders in Kombination mit modernen JavaScript-Frameworks wie React und Next.js erfreut sich Tailwind großer Beliebtheit. Die jüngsten Verbesserungen in Version 4.0 haben das Framework noch leistungsfähiger gemacht.",
+        "author": "Tom Weber",
+        "date": "2025-10-08",
+        "category": "CSS",
+    },
+    {
+        "id": 4,
+        "title": "TypeScript dominiert JavaScript-Ökosystem",
+        "excerpt": "Immer mehr Entwickler setzen auf statische Typisierung mit TypeScript.",
+        "content":
+            "TypeScript hat sich endgültig als Standard in der JavaScript-Entwicklung etabliert. Laut den neuesten Statistiken von GitHub wird TypeScript in über 60% aller neuen JavaScript-Projekte verwendet. Die Vorteile der statischen Typisierung, bessere Entwicklertools und frühzeitige Fehlererkennung überzeugen immer mehr Teams. Auch große Frameworks wie Angular, Next.js und Vue empfehlen TypeScript als bevorzugte Sprache. Microsoft, der Entwickler hinter TypeScript, hat mit Version 5.2 weitere Verbesserungen eingeführt, die die Entwicklererfahrung noch weiter verbessern.",
+        "author": "Lisa Müller",
+        "date": "2025-10-05",
+        "category": "JavaScript",
+    },
+    {
+        "id": 5,
+        "title": "KI-Tools revolutionieren Webentwicklung",
+        "excerpt": "Neue KI-gestützte Tools helfen Entwicklern, schneller und effizienter zu arbeiten.",
+        "content":
+            "Künstliche Intelligenz verändert die Art und Weise, wie Webentwickler arbeiten. Tools wie GitHub Copilot, Claude Code und andere KI-Assistenten übernehmen zunehmend repetitive Aufgaben und generieren Code-Vorschläge. Eine aktuelle Studie zeigt, dass Entwickler mit KI-Unterstützung bis zu 40% produktiver sind und weniger Zeit mit Debugging verbringen. Besonders bei der Erstellung von Standardkomponenten und der Implementierung bekannter Patterns können diese Tools viel Zeit sparen. Experten prognostizieren, dass bis 2027 über 80% der Webentwickler regelmäßig KI-Tools in ihrem Arbeitsablauf einsetzen werden.",
+        "author": "David Fischer",
+        "date": "2025-10-01",
+        "category": "KI",
+    },
+]
+}
