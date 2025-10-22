@@ -60,15 +60,8 @@ export async function fetchPost(id) {
         const post = await response.json();
 
         // Transformiere den Beitrag in unser Format
-        return {
-            id: post.id,
-            title: post.title,
-            excerpt: post.body.substring(0, 100) + "...",
-            content: post.body,
-            author: "API Autor",
-            date: new Date().toISOString().split("T")[0],
-            category: ["Technologie", "Nachrichten", "Web", "Design", "Programmierung"][Math.floor(Math.random() * 5)],
-        };
+        return post;
+
     } catch (error) {
         console.error("API Fehler:", error);
         return null;
