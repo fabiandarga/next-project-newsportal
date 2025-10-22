@@ -51,7 +51,7 @@ export async function fetchPosts() {
 // Funktion zum Abrufen eines einzelnen Beitrags nach ID
 export async function fetchPost(id) {
     try {
-        const response = await fetch(`${API_BASE_URL}/posts/${id}`);
+        const response = await fetch(`${API_BASE_URL}/data/${id}`);
 
         if (!response.ok) {
             throw new Error("Beitrag nicht gefunden");
@@ -59,7 +59,6 @@ export async function fetchPost(id) {
 
         const post = await response.json();
 
-        // Transformiere den Beitrag in unser Format
         return post;
 
     } catch (error) {
