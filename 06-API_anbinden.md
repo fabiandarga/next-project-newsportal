@@ -41,17 +41,7 @@ export async function fetchPosts() {
 
         const posts = await response.json();
 
-        // Transformiere die Daten in unser Format
-        return posts.map((post) => ({
-            id: post.id,
-            title: post.title,
-            excerpt: post.body.substring(0, 100) + "...",
-            content: post.body,
-            // Die API bietet keine Autoren oder Kategorien, also fügen wir Dummy-Daten hinzu
-            author: "API Autor",
-            date: new Date().toISOString().split("T")[0], // heutiges Datum
-            category: ["Technologie", "Nachrichten", "Web", "Design", "Programmierung"][Math.floor(Math.random() * 5)],
-        }));
+        return posts;
     } catch (error) {
         console.error("API Fehler:", error);
         return [];
