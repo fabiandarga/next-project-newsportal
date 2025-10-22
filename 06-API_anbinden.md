@@ -28,12 +28,12 @@ Zuerst erstellen wir eine Hilfsdatei, die alle API-bezogenen Funktionen enthält
 // https://jsonplaceholder.typicode.com
 
 // Basis-URL der API
-const API_BASE_URL = "https://jsonplaceholder.typicode.com";
+const API_BASE_URL = "https://my-json-server.typicode.com/fabiandarga/next-project-newsportal";
 
 // Funktion zum Abrufen aller Beiträge (limitiert auf 10)
 export async function fetchPosts() {
     try {
-        const response = await fetch(`${API_BASE_URL}/posts?_limit=10`);
+        const response = await fetch(`${API_BASE_URL}/data?_limit=10`);
 
         if (!response.ok) {
             throw new Error("Fehler beim Laden der Beiträge");
