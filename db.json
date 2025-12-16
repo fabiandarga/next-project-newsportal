@@ -4,7 +4,7 @@
             "id": 1,
             "title": "Next.js 14 veröffentlicht",
             "excerpt": "Die neueste Version bringt viele Verbesserungen für Server Components und Rendering-Optimierungen.",
-            "content": "Next.js 14 wurde als große Weiterentwicklung des beliebten React-Frameworks veröffentlicht. Die neue Version fokussiert sich auf Server Components, verbesserte Build-Zeiten und kleinere JavaScript-Bundles. Der App Router wurde weiter optimiert, um eine noch bessere Entwicklererfahrung zu bieten. Vercel, das Unternehmen hinter Next.js, berichtet von bis zu 90% schnelleren Build-Zeiten bei großen Anwendungen.",
+            "content": "Next.js 14 wurde als große Weiterentwicklung des beliebten React-Frameworks veröffentlicht. Die neue Version fokussiert sich auf Server Components, verbesserte Build-Zeiten und kleinere JavaScript-Bundles. Der App Router wurde weiter optimiert, um eine noch bessere Entwicklererfahrung zu bieten.",
             "author": "Max Mustermann",
             "date": "2025-10-15",
             "category": "Framework"
@@ -31,7 +31,7 @@
             "id": 4,
             "title": "TypeScript dominiert JavaScript-Ökosystem",
             "excerpt": "Immer mehr Entwickler setzen auf statische Typisierung mit TypeScript.",
-            "content": "TypeScript hat sich endgültig als Standard in der JavaScript-Entwicklung etabliert. Laut den neuesten Statistiken von GitHub wird TypeScript in über 60% aller neuen JavaScript-Projekte verwendet. Die Vorteile der statischen Typisierung, bessere Entwicklertools und frühzeitige Fehlererkennung überzeugen immer mehr Teams. Auch große Frameworks wie Angular, Next.js und Vue empfehlen TypeScript als bevorzugte Sprache. Microsoft, der Entwickler hinter TypeScript, hat mit Version 5.2 weitere Verbesserungen eingeführt, die die Entwicklererfahrung noch weiter verbessern.",
+            "content": "TypeScript hat sich endgültig als Standard in der JavaScript-Entwicklung etabliert. Laut den neuesten Statistiken von GitHub wird TypeScript in über 60% aller neuen JavaScript-Projekte verwendet. Die Vorteile der statischen Typisierung, bessere Entwicklertools und frühzeitige Fehlererkennung überzeugen immer mehr Teams.",
             "author": "Lisa Müller",
             "date": "2025-10-05",
             "category": "JavaScript"
@@ -49,7 +49,7 @@
             "id": 6,
             "title": "Responsive Design wird zum Standard",
             "excerpt": "Mobile-First ist nicht mehr optional - es ist eine Notwendigkeit für moderne Websites.",
-            "content": "In einer zunehmend mobilen Welt ist Responsive Design längst keine Option mehr, sondern ein absolutes Muss. Aktuelle Statistiken zeigen, dass über 65% des Web-Traffics von mobilen Geräten stammt. Designer und Entwickler müssen ihre Ansätze anpassen und Mobile-First-Strategien verfolgen. Moderne CSS-Features wie Grid, Flexbox und Container Queries machen es einfacher denn je, flexible Layouts zu erstellen, die auf jedem Gerät optimal aussehen. Die Herausforderung liegt darin, nicht nur die visuelle Darstellung, sondern auch die User Experience für verschiedene Bildschirmgrößen zu optimieren.",
+            "content": "In einer zunehmend mobilen Welt ist Responsive Design längst keine Option mehr, sondern ein absolutes Muss. Aktuelle Statistiken zeigen, dass über 65% des Web-Traffics von mobilen Geräten stammt. Designer und Entwickler müssen ihre Ansätze anpassen und Mobile-First-Strategien verfolgen.",
             "author": "Sarah Klein",
             "date": "2025-09-28",
             "category": "Design"
@@ -67,7 +67,7 @@
             "id": 8,
             "title": "Python dominiert KI-Entwicklung",
             "excerpt": "Die Programmiersprache Python bleibt die erste Wahl für Machine Learning und KI-Projekte.",
-            "content": "Python hat sich als die führende Sprache für Künstliche Intelligenz und Machine Learning etabliert. Bibliotheken wie TensorFlow, PyTorch und Scikit-learn haben ein umfangreiches Ökosystem geschaffen, das Entwicklern ermöglicht, komplexe KI-Modelle mit wenigen Zeilen Code zu erstellen. Die einfache Syntax und die große Community machen Python besonders attraktiv für Data Scientists und KI-Forscher. Auch im Web-Bereich gewinnt Python mit Frameworks wie FastAPI und Django an Bedeutung, besonders wenn es um die Integration von KI-Features in Webanwendungen geht.",
+            "content": "Python hat sich als die führende Sprache für Künstliche Intelligenz und Machine Learning etabliert. Bibliotheken wie TensorFlow, PyTorch und Scikit-learn haben ein umfangreiches Ökosystem geschaffen, das Entwicklern ermöglicht, komplexe KI-Modelle mit wenigen Zeilen Code zu erstellen.",
             "author": "Julia Schneider",
             "date": "2025-09-22",
             "category": "Programmierung"
@@ -76,7 +76,7 @@
             "id": 9,
             "title": "Neue Browser-APIs erweitern Web-Möglichkeiten",
             "excerpt": "Moderne Browser bieten immer mehr native Funktionen, die früher nur nativen Apps vorbehalten waren.",
-            "content": "Die Grenzen zwischen Web- und nativen Anwendungen verschwimmen zunehmend. Neue Browser-APIs wie File System Access, WebGPU, Web Bluetooth und Payment Request ermöglichen Funktionen, die früher nur nativen Apps vorbehalten waren. Progressive Web Apps (PWAs) können mittlerweile offline arbeiten, Push-Benachrichtigungen senden und auf Hardware-Sensoren zugreifen. Diese Entwicklung eröffnet völlig neue Möglichkeiten für Webanwendungen und macht sie zu ernsthaften Alternativen zu traditionellen Desktop- und Mobile-Apps. Experten sprechen von einem neuen goldenen Zeitalter des Web.",
+            "content": "Die Grenzen zwischen Web- und nativen Anwendungen verschwimmen zunehmend. Neue Browser-APIs wie File System Access, WebGPU, Web Bluetooth und Payment Request ermöglichen Funktionen, die früher nur nativen Apps vorbehalten waren.",
             "author": "Patrick Hoffmann",
             "date": "2025-09-19",
             "category": "Technologie"
@@ -85,7 +85,7 @@
             "id": 10,
             "title": "GraphQL vs REST: Der Vergleich 2025",
             "excerpt": "Welche API-Architektur ist die richtige Wahl für moderne Webanwendungen?",
-            "content": "Die Debatte zwischen GraphQL und REST geht in eine neue Runde. Während REST seit Jahren der Standard für Web-APIs ist, gewinnt GraphQL besonders bei komplexen Anwendungen an Beliebtheit. GraphQL bietet Flexibilität bei Abfragen und vermeidet Over-Fetching, erfordert aber auch mehr Setup und Komplexität. REST punktet mit Einfachheit und breiter Tool-Unterstützung. Viele Teams setzen mittlerweile auf einen hybriden Ansatz oder nutzen beide Technologien je nach Anwendungsfall. Die Entscheidung hängt stark von den spezifischen Anforderungen und der Team-Expertise ab.",
+            "content": "Die Debatte zwischen GraphQL und REST geht in eine neue Runde. Während REST seit Jahren der Standard für Web-APIs ist, gewinnt GraphQL besonders bei komplexen Anwendungen an Beliebtheit. GraphQL bietet Flexibilität bei Abfragen und vermeidet Over-Fetching, erfordert aber auch mehr Setup und Komplexität.",
             "author": "Robert Wagner",
             "date": "2025-09-16",
             "category": "Web"
@@ -94,7 +94,7 @@
             "id": 11,
             "title": "Dark Mode: Mehr als nur ein Trend",
             "excerpt": "Warum dunkle Benutzeroberflächen nicht nur schick aussehen, sondern auch praktische Vorteile bieten.",
-            "content": "Der Dark Mode hat sich von einem Nischen-Feature zu einem Must-Have entwickelt. Über 70% der Nutzer bevorzugen dunkle Oberflächen, besonders bei Arbeit in dunkleren Umgebungen. Die Vorteile gehen über Ästhetik hinaus: reduzierte Augenbelastung, längere Akkulaufzeit bei OLED-Displays und besserer Kontrast in bestimmten Situationen. Für Designer bedeutet dies, Farbsysteme neu zu durchdenken und für beide Modi zu optimieren. CSS Custom Properties und die prefers-color-scheme Media Query machen die Implementierung heutzutage deutlich einfacher als noch vor wenigen Jahren.",
+            "content": "Der Dark Mode hat sich von einem Nischen-Feature zu einem Must-Have entwickelt. Über 70% der Nutzer bevorzugen dunkle Oberflächen, besonders bei Arbeit in dunkleren Umgebungen. Die Vorteile gehen über Ästhetik hinaus: reduzierte Augenbelastung, längere Akkulaufzeit bei OLED-Displays und besserer Kontrast in bestimmten Situationen.",
             "author": "Nina Schulz",
             "date": "2025-09-13",
             "category": "Design"
@@ -103,7 +103,7 @@
             "id": 12,
             "title": "Vue 3.4 bringt Performance-Verbesserungen",
             "excerpt": "Das beliebte JavaScript-Framework wird noch schneller und entwicklerfreundlicher.",
-            "content": "Vue.js 3.4 wurde mit zahlreichen Performance-Optimierungen veröffentlicht. Die neue Version bringt bis zu 50% schnellere Reaktivitäts-Updates und eine deutlich verbesserte TypeScript-Integration. Der neue defineModel Macro vereinfacht die Arbeit mit v-model erheblich und reduziert Boilerplate-Code. Auch die Developer Experience wurde verbessert: bessere Fehlermeldungen, optimierte Build-Zeiten und erweiterte DevTools. Vue bleibt damit eine attraktive Alternative zu React und Angular, besonders für Teams, die eine sanftere Lernkurve schätzen.",
+            "content": "Vue.js 3.4 wurde mit zahlreichen Performance-Optimierungen veröffentlicht. Die neue Version bringt bis zu 50% schnellere Reaktivitäts-Updates und eine deutlich verbesserte TypeScript-Integration.",
             "author": "Felix Koch",
             "date": "2025-09-10",
             "category": "Framework"
@@ -116,114 +116,6 @@
             "author": "Thomas Richter",
             "date": "2025-09-07",
             "category": "Nachrichten"
-        },
-        {
-            "id": 14,
-            "title": "CSS Grid und Flexbox optimal kombinieren",
-            "excerpt": "Die beiden Layout-Systeme ergänzen sich perfekt für moderne Web-Layouts.",
-            "content": "CSS Grid und Flexbox sind keine Konkurrenten, sondern Partner. Grid eignet sich perfekt für zweidimensionale Layouts und Seitenstrukturen, während Flexbox seine Stärken bei eindimensionalen Anordnungen und Komponenten-Layouts ausspielt. Moderne Entwickler nutzen beide Technologien je nach Anwendungsfall: Grid für das Haupt-Layout der Seite, Flexbox für Navigation, Card-Layouts und kleinere UI-Komponenten. Die Kombination ermöglicht es, auch komplexe Designs ohne zusätzliche Frameworks zu realisieren. Mit der neuen Subgrid-Unterstützung in allen modernen Browsern wird Grid noch mächtiger.",
-            "author": "Claudia Braun",
-            "date": "2025-09-04",
-            "category": "CSS"
-        },
-        {
-            "id": 15,
-            "title": "Async/Await vs Promises: Best Practices",
-            "excerpt": "Wie Sie asynchronen Code in JavaScript sauber und wartbar gestalten.",
-            "content": "Asynchrone Programmierung ist im modernen JavaScript unverzichtbar. Während Promises die Grundlage bilden, macht async/await den Code lesbarer und wartbarer. Best Practices umfassen fehlerhafte Promise-Chains zu vermeiden, try/catch für Error Handling zu nutzen und Promise.all für parallele Operationen einzusetzen. Ein häufiger Fehler ist das sequentielle Awaiten von unabhängigen Promises, was die Performance unnötig verlangsamt. Die richtige Nutzung dieser Patterns kann die Code-Qualität erheblich verbessern und gleichzeitig die Fehleranfälligkeit reduzieren.",
-            "author": "Markus Stein",
-            "date": "2025-09-01",
-            "category": "JavaScript"
-        },
-        {
-            "id": 16,
-            "title": "KI-generierte Designs: Chance oder Risiko?",
-            "excerpt": "Künstliche Intelligenz verändert die Designbranche grundlegend.",
-            "content": "KI-Tools wie Midjourney, DALL-E und Stable Diffusion revolutionieren den Design-Prozess. Designer können in Sekunden Variationen erstellen, die früher Stunden dauerten. Doch die Technologie wirft auch Fragen auf: Verlieren Designer ihre Relevanz? Wie steht es um Copyright und Originalität? Die Antwort liegt wahrscheinlich in der Mitte: KI als Werkzeug, nicht als Ersatz. Erfolgreiche Designer nutzen KI für Inspiration und Iteration, während sie ihre menschliche Kreativität für Konzeption und Feinschliff einsetzen. Die Kombination aus KI-Effizienz und menschlichem Urteilsvermögen könnte das Design auf ein neues Level heben.",
-            "author": "Eva Zimmermann",
-            "date": "2025-08-29",
-            "category": "KI"
-        },
-        {
-            "id": 17,
-            "title": "Svelte 5 mit revolutionären Runes",
-            "excerpt": "Das schlanke Framework führt ein neues Reaktivitäts-System ein.",
-            "content": "Svelte 5 markiert einen Wendepunkt für das beliebte Frontend-Framework. Das neue Runes-System ersetzt die bisherige Reaktivität durch einen expliziten, aber dennoch eleganten Ansatz. Mit $state, $derived und $effect haben Entwickler mehr Kontrolle über den Reaktivitätsfluss, während der Code wartbarer wird. Die Performance-Verbesserungen sind beeindruckend: kleinere Bundles, schnellere Updates und besseres Tree-Shaking. SvelteKit, das Full-Stack-Framework, profitiert ebenfalls von diesen Änderungen. Trotz der Breaking Changes bleibt Svelte seiner Philosophie treu: weniger Code, mehr Leistung.",
-            "author": "Stefan Vogel",
-            "date": "2025-08-26",
-            "category": "Framework"
-        },
-        {
-            "id": 18,
-            "title": "Barrierefreiheit im Web: Pflicht und Chance",
-            "excerpt": "Accessible Design erreicht mehr Nutzer und verbessert die UX für alle.",
-            "content": "Barrierefreiheit ist nicht nur eine rechtliche Anforderung, sondern auch eine Chance, bessere Produkte zu schaffen. WCAG 2.2 Standards setzen klare Richtlinien für zugängliche Webanwendungen. Semantic HTML, ARIA-Labels, Keyboard-Navigation und ausreichende Kontraste sind grundlegende Anforderungen. Tools wie axe DevTools und Lighthouse helfen, Probleme frühzeitig zu erkennen. Ein oft übersehener Vorteil: Barrierefreie Websites sind auch für alle anderen Nutzer besser - sei es bei hellem Sonnenlicht, mit langsamer Internetverbindung oder bei temporären Einschränkungen. Accessibility ist Universal Design.",
-            "author": "Maria Lehmann",
-            "date": "2025-08-23",
-            "category": "Web"
-        },
-        {
-            "id": 19,
-            "title": "Rust erobert die Backend-Entwicklung",
-            "excerpt": "Die sichere Systemsprache wird zur ernsthaften Alternative für Web-Backend.",
-            "content": "Rust macht große Fortschritte im Web-Backend-Bereich. Frameworks wie Actix, Rocket und Axum bieten hervorragende Performance bei gleichzeitiger Memory-Safety. Die Kombination aus Geschwindigkeit und Sicherheit macht Rust besonders attraktiv für kritische Anwendungen und High-Performance-APIs. Große Unternehmen wie Discord, Cloudflare und Amazon setzen bereits auf Rust für Performance-kritische Services. Die steilere Lernkurve wird durch exzellente Tooling, hilfreiche Compiler-Meldungen und eine wachsende Community ausgeglichen. Rust könnte in den nächsten Jahren zu einer der wichtigsten Backend-Sprachen werden.",
-            "author": "Alexander Krause",
-            "date": "2025-08-20",
-            "category": "Programmierung"
-        },
-        {
-            "id": 20,
-            "title": "5G und Edge Computing verändern das Web",
-            "excerpt": "Neue Netzwerktechnologien ermöglichen völlig neue Anwendungsszenarien.",
-            "content": "Die Kombination aus 5G-Netzen und Edge Computing eröffnet revolutionäre Möglichkeiten für Webanwendungen. Mit Latenzzeiten unter 10ms und höheren Bandbreiten werden Anwendungen möglich, die früher undenkbar waren: Echtzeit-Collaboration, AR/VR im Browser, Cloud Gaming und IoT-Anwendungen. Edge Computing bringt die Rechenleistung näher zum Nutzer, was Performance drastisch verbessert. CDNs entwickeln sich zu Edge-Computing-Plattformen, die nicht nur Content ausliefern, sondern auch Code ausführen. Diese Infrastruktur-Revolution wird die Web-Entwicklung in den nächsten Jahren grundlegend verändern.",
-            "author": "Benjamin Wolf",
-            "date": "2025-08-17",
-            "category": "Technologie"
-        },
-        {
-            "id": 21,
-            "title": "Regulierung von Social Media nimmt zu",
-            "excerpt": "Neue Gesetze in der EU und weltweit verändern die Plattform-Landschaft.",
-            "content": "Der Digital Services Act (DSA) und Digital Markets Act (DMA) der EU setzen neue Standards für Social-Media-Plattformen. Plattformen müssen transparenter werden, Nutzer besser schützen und ihre Algorithmen offenlegen. Auch andere Länder ziehen nach und entwickeln eigene Regelwerke. Für Entwickler bedeutet dies: Mehr Compliance-Anforderungen, aber auch neue Chancen für alternative Plattformen, die Privacy und User Control in den Vordergrund stellen. Die Regulierung könnte zu einer Renaissance dezentraler Social-Media-Lösungen führen. Das Fediverse und Protokolle wie ActivityPub gewinnen an Bedeutung.",
-            "author": "Laura Pfeiffer",
-            "date": "2025-08-14",
-            "category": "Nachrichten"
-        },
-        {
-            "id": 22,
-            "title": "CSS Container Queries revolutionieren Responsive Design",
-            "excerpt": "Endlich können Komponenten auf ihre eigene Größe reagieren, nicht nur auf den Viewport.",
-            "content": "Container Queries sind endlich in allen modernen Browsern verfügbar und verändern grundlegend, wie wir über Responsive Design denken. Statt nur auf die Viewport-Größe zu reagieren, können Komponenten nun auf ihre eigene Container-Größe reagieren. Dies ermöglicht wirklich modulare, wiederverwendbare Komponenten, die sich automatisch an ihren Kontext anpassen. Ein Card-Component kann in der Sidebar anders aussehen als im Hauptbereich, ohne dass wir verschiedene Klassen oder JavaScript benötigen. Diese Technologie macht Design-Systeme flexibler und wartbarer. Die Zukunft von CSS ist component-driven.",
-            "author": "Tobias Lang",
-            "date": "2025-08-11",
-            "category": "CSS"
-        },
-        {
-            "id": 23,
-            "title": "React 19 bringt neue Hooks und Features",
-            "excerpt": "Die neueste Version des beliebten Frameworks fokussiert auf Developer Experience.",
-            "content": "React 19 führt mehrere spannende neue Features ein. Die neuen use() Hook erlaubt das Lesen von Promises und Context in einer intuitiveren Weise. Server Actions machen die Interaktion mit dem Backend einfacher und type-sicher. Der neue Asset Loading gibt Entwicklern mehr Kontrolle über das Laden von Bildern und Stylesheets. Performance-Optimierungen im Reconciler und Compiler verbessern die Runtime-Performance. Die React-Team arbeitet auch an einem optimierenden Compiler, der manuelles Memoization überflüssig machen könnte. React bleibt damit das dominante Framework im Frontend-Bereich.",
-            "author": "Sophie Bergmann",
-            "date": "2025-08-08",
-            "category": "React"
-        },
-        {
-            "id": 24,
-            "title": "WebAssembly erweitert Browser-Möglichkeiten",
-            "excerpt": "Sprachen wie C++, Rust und Go laufen jetzt nativ im Browser mit nativer Performance.",
-            "content": "WebAssembly (Wasm) hat sich von einem Experiment zu einer tragenden Säule des modernen Web entwickelt. Entwickler können Performance-kritische Code in Sprachen wie Rust, C++ oder Go schreiben und im Browser mit nahezu nativer Geschwindigkeit ausführen. Anwendungsfälle reichen von Bildbearbeitung über 3D-Rendering bis zu ganzen Desktop-Anwendungen im Browser. Tools wie Figma, Google Earth und AutoCAD nutzen bereits Wasm. Mit WASI (WebAssembly System Interface) wird Wasm auch außerhalb des Browsers relevant. Die Technologie könnte JavaScript nicht ersetzen, aber perfekt ergänzen.",
-            "author": "Daniel Meyer",
-            "date": "2025-08-05",
-            "category": "Technologie"
-        },
-        {
-            "id": 25,
-            "title": "Clean Code in JavaScript: Moderne Best Practices",
-            "excerpt": "Wartbarer Code ist kein Zufall - diese Prinzipien helfen beim Schreiben besseren JavaScripts.",
-            "content": "Clean Code ist wichtiger denn je in großen JavaScript-Codebases. Prinzipien wie SOLID, DRY und KISS gelten auch für JavaScript, müssen aber an die Sprache angepasst werden. Moderne JavaScript-Features wie Destructuring, Optional Chaining und Nullish Coalescing helfen, Code prägnanter zu machen. Funktionale Programmierung mit map, filter und reduce führt zu weniger Bugs. Aussagekräftige Naming Conventions, kleine Funktionen und das Vermeiden von Seiteneffekten sind grundlegend. TypeScript hilft zusätzlich, Fehler früh zu erkennen. Code Reviews und Linting-Tools wie ESLint automatisieren die Qualitätssicherung.",
-            "author": "Christian Peters",
-            "date": "2025-08-02",
-            "category": "JavaScript"
         }
     ]
 }
