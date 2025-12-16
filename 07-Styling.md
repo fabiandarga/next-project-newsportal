@@ -83,6 +83,7 @@ Jetzt verbessern wir das Design der NewsCard-Komponente:
 ```jsx
 import Link from "next/link";
 import LikeButton from "./LikeButton";
+import CategoryLink from "@/components/CategoryLink";
 
 export default function NewsCard({ id, title, excerpt, author, date, category }) {
     // Formatiere das Datum als lesbare Zeichenkette
@@ -106,16 +107,8 @@ export default function NewsCard({ id, title, excerpt, author, date, category })
                         {truncatedTitle}
                     </h2>
 
-                    {/* Kategorie-Badge */}
-                    {category && (
-                        <Link
-                            href={`/category/${category}`}
-                            className="self-start inline-block mt-1 mb-3 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full group-hover:bg-blue-200 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {category}
-                        </Link>
-                    )}
+                    {/* Kategorie-Link */}
+                    {category && <CategoryLink category={category} />}
 
                     <p className="text-gray-600 mb-4 flex-grow">{excerpt}</p>
 
@@ -126,9 +119,7 @@ export default function NewsCard({ id, title, excerpt, author, date, category })
                             <span>{formattedDate}</span>
                         </div>
 
-                        <div onClick={(e) => e.stopPropagation()}>
-                            <LikeButton />
-                        </div>
+                        <LikeButton />
                     </div>
                 </div>
             </article>
@@ -190,33 +181,10 @@ export default async function NewsDetail({ params }) {
         day: "numeric",
     });
 
-    // Funktion für Kategoriefarben (könnte in eine Hilfsdatei ausgelagert werden)
-    const getCategoryColor = (category) => {
-        const colors = {
-            Technologie: "bg-blue-500 text-white",
-            Nachrichten: "bg-red-500 text-white",
-            Web: "bg-purple-500 text-white",
-            Design: "bg-pink-500 text-white",
-            Programmierung: "bg-green-500 text-white",
-            Framework: "bg-yellow-500 text-white",
-            React: "bg-cyan-500 text-white",
-            CSS: "bg-indigo-500 text-white",
-            JavaScript: "bg-orange-500 text-white",
-            KI: "bg-emerald-500 text-white",
-        };
-
-        return colors[category] || "bg-gray-500 text-white";
-    };
-
     return (
         <article className="p-4 md:p-8 max-w-3xl mx-auto">
             {/* Kategorie-Badge */}
-            <Link
-                href={`/category/${post.category}`}
-                className={`inline-block mb-4 px-3 py-1 rounded-full text-sm ${getCategoryColor(post.category)}`}
-            >
-                {post.category}
-            </Link>
+            <CategoryLink category={post.category} />
 
             <h1 className="text-2xl md:text-3xl font-bold mb-4">{post.title}</h1>
 
@@ -469,7 +437,17 @@ export default function Navbar({ isMobile = false }) {
 }
 ```
 
-## Schritt 6: Design für Dark Mode (Aufgabe)
+## Schritt 6: Kategorie-Farben (Aufgabe)
+
+Nutze die Funktion `getCategoryColor` an jeder Stelle:
+
+- Kategorien-Liste auf Startseite
+- Kategorie-Link in NewsCard und News Detail Page
+- Kategorie Layout
+
+Extrahiere dazu die Funktion in eine utility-Datei `/lib/categories.js`.
+
+## Schritt 7: Design für Dark Mode (Aufgabe)
 
 Implementiere eine einfache Dark Mode-Unterstützung für die Anwendung:
 

@@ -60,7 +60,6 @@ export async function fetchPost(id) {
         const post = await response.json();
 
         return post;
-
     } catch (error) {
         console.error("API Fehler:", error);
         return null;

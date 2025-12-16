@@ -155,9 +155,11 @@ import { newsData } from "@/lib/data";
 import Link from "next/link";
 
 // Diese Funktion wird auf dem Server ausgeführt
-export default function NewsDetail({ params }) {
+export default async function NewsDetail({ params }) {
+    const { id } = await params; // params sind ein Promise
+
     // Finde die Nachricht mit der passenden ID
-    const newsItem = newsData.find((item) => item.id === parseInt(params.id));
+    const newsItem = newsData.find((item) => item.id === parseInt(id));
 
     // Falls keine Nachricht gefunden wurde
     if (!newsItem) {
@@ -240,6 +242,18 @@ export default function NewsCard({ id, title, excerpt, author, date }) {
         </Link>
     );
 }
+```
+
+Damit ein Click auf den Like-Button nicht zusätzlich eine Navigation auslöst, muss ein `event.preventDefault()` eingesetzt werden.
+Im LikeButton:
+
+```jsx
+const handleLike = (event: MouseEvent) => {
+    event.stopPropagation() // < verhindert Event bubbling
+    event.preventDefault()  // < verhinder Browser Standard
+
+    // ...
+};
 ```
 
 3. Aktualisiere auch die Startseite, um die ID an die NewsCard-Komponente zu übergeben:

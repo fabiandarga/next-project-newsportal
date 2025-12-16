@@ -8,9 +8,10 @@ In dieser Übung werden wir uns tiefer mit dynamischen Routen in Next.js befasse
 
 ## Schritt 1: Kategorieseiten erstellen
 
-Jetzt erstellen wir dynamische Routen für Nachrichtenkategorien:
+**Jetzt erstellen wir dynamische Routen für Nachrichtenkategorien:**
 
-1. Füge zuerst Kategorien zu deinen Nachrichtendaten hinzu. Öffne `lib/data.js` und füge jeder Nachricht eine Kategorie hinzu:
+1. Stelle sicher, dass die Nachrichtendaten in `lib/data.js` jeweils eine `category` haben hinzu.
+   Und füge eine Funktion `getNewsByCategory` hinzu.
 
 ```jsx
 export const newsData = [
@@ -20,30 +21,7 @@ export const newsData = [
         // ... bestehende Daten
         category: "Framework",
     },
-    {
-        id: 2,
-        title: "React Server Components im Einsatz",
-        // ... bestehende Daten
-        category: "React",
-    },
-    {
-        id: 3,
-        title: "Tailwind CSS wird immer beliebter",
-        // ... bestehende Daten
-        category: "CSS",
-    },
-    {
-        id: 4,
-        title: "TypeScript dominiert JavaScript-Ökosystem",
-        // ... bestehende Daten
-        category: "JavaScript",
-    },
-    {
-        id: 5,
-        title: "KI-Tools revolutionieren Webentwicklung",
-        // ... bestehende Daten
-        category: "KI",
-    },
+    // ...
 ];
 
 // Hilfsfunktion zum Extrahieren von Kategorien
@@ -60,16 +38,16 @@ export function getNewsByCategory(category) {
 
 2. Erstelle einen neuen Ordner `category` im `app`-Verzeichnis
 3. Erstelle darin einen Ordner `[category]` (die eckigen Klammern zeigen an, dass es sich um eine dynamische Route handelt)
-4. Erstelle eine neue Datei `page.js` im `[category]`-Ordner:
+4. Erstelle eine neue Datei `page.js` im `[category]`-Ordner (_/app/category/[category]/page.tsx_)
 
 ```jsx
 import { getNewsByCategory } from "@/lib/data";
 import NewsCard from "@/components/NewsCard";
 import Link from "next/link";
 
-export default function CategoryPage({ params }) {
+export default async function CategoryPage({ params }) {
     // Hole die Kategorie aus den URL-Parametern
-    const { category } = params;
+    const { category } = await params;
 
     // Filtere Nachrichten nach Kategorie
     const filteredNews = getNewsByCategory(category);
@@ -107,7 +85,7 @@ export default function CategoryPage({ params }) {
 
 ## Schritt 2: Kategorien auf der Startseite anzeigen
 
-Jetzt aktualisieren wir die Startseite, um die Kategorien anzuzeigen:
+Jetzt aktualisieren wir die Startseite, um die Kategorien clickbar zu machen:
 
 1. Öffne die Datei `app/page.js`
 2. Importiere die `getCategories`-Funktion
@@ -134,6 +112,7 @@ export default function Home() {
             <div className="mb-6">
                 <h2 className="text-lg font-semibold mb-2">Kategorien:</h2>
                 <div className="flex gap-2 flex-wrap">
+                    {/* Clickbare Category-Tags */}
                     {categories.map((category) => (
                         <Link
                             key={category}
@@ -169,12 +148,43 @@ export default function Home() {
 
 Jetzt aktualisieren wir die NewsCard-Komponente, um die Kategorie anzuzeigen:
 
+Ein Link zur Kategorien sollte als eigene Komponente implementiert werden:
+_/components/CategoryLink.tsx_
+
+```tsx
+"use client";
+import Link from "next/link";
+
+export default function CategoryLink({ category }) {
+    const router = useRouter();
+
+    const handleClick = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        router.push(`/category/${category}`);
+    };
+
+    return (
+        <div
+            href={`/category/${category}`}
+            className="inline-block mt-2 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full"
+            onClick={handleClick}
+        >
+            {category}
+        </div>
+    );
+}
+```
+
+Das verhinder ein verschachteltes <a> in einem <a>, was in HTML (und react) verboten ist.
+Ebenso kann der Link ein 'use client' bekommen und die NewsCard bleibt eine Server-Component.
+
 1. Öffne die Datei `components/NewsCard.jsx`
-2. Füge die Kategorie als Prop hinzu:
+2. Ersetze die Kategorie mit dem CategoryLink:
 
 ```jsx
-import Link from "next/link";
 import LikeButton from "./LikeButton";
+import CategoryLink from "@/components/CategoryLink";
 
 export default function NewsCard({ id, title, excerpt, author, date, category }) {
     const formattedDate = new Date(date).toLocaleDateString("de-DE", {
@@ -188,16 +198,8 @@ export default function NewsCard({ id, title, excerpt, author, date, category })
             <article className="border p-4 rounded-lg shadow-sm bg-white hover:shadow-md transition-shadow">
                 <h2 className="text-xl font-bold text-gray-800">{title}</h2>
 
-                {/* Kategorie-Badge hinzufügen */}
-                {category && (
-                    <Link
-                        href={`/category/${category}`}
-                        className="inline-block mt-2 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {category}
-                    </Link>
-                )}
+                {/* Kategorie-Link hinzufügen */}
+                {category && <CategoryLink category={category} />}
 
                 <p className="mt-3 text-gray-600">{excerpt}</p>
 
@@ -208,9 +210,7 @@ export default function NewsCard({ id, title, excerpt, author, date, category })
                         <span>{formattedDate}</span>
                     </div>
 
-                    <div onClick={(e) => e.stopPropagation()}>
-                        <LikeButton />
-                    </div>
+                    <LikeButton />
                 </div>
             </article>
         </Link>
@@ -229,7 +229,8 @@ Jetzt aktualisieren wir die Detailseite, um auch die Kategorie anzuzeigen:
 import { newsData } from "@/lib/data";
 import Link from "next/link";
 
-export default function NewsDetail({ params }) {
+export default async function NewsDetail({ params }) {
+    const { id } = await params;
     const newsItem = newsData.find((item) => item.id === parseInt(params.id));
 
     if (!newsItem) {
@@ -289,7 +290,8 @@ Erstelle ein spezielles Layout nur für die Kategorie-Seiten:
 
 ```jsx
 // app/category/[category]/layout.js
-export default function CategoryLayout({ children, params }) {
+export default async function CategoryLayout({ children, params }) {
+    const { category } = await params;
     return (
         <div>
             <div className="bg-blue-600 text-white p-4 mb-4">
@@ -311,8 +313,8 @@ import { getNewsByCategory } from "@/lib/data";
 import NewsCard from "@/components/NewsCard";
 import Link from "next/link";
 
-export default function CategoryPage({ params }) {
-    const { category } = params;
+export default async function CategoryPage({ params }) {
+    const { category } = await params;
     const filteredNews = getNewsByCategory(category);
 
     return (

@@ -16,7 +16,6 @@ npx create-next-app@latest news-portal
 ```
 
 3. Beantworte die Fragen wie folgt:
-
     - Would you like to use TypeScript? → No (oder Yes, wenn du TypeScript kennst)
     - Would you like to use ESLint? → Yes
     - Would you like to use Tailwind CSS? → Yes
@@ -77,6 +76,8 @@ export default function Home() {
 2. Passe die Datei an, um einen ansprechenden Rahmen für alle Seiten zu erstellen:
 
 ```jsx
+import "./globals.css";
+
 export const metadata = {
     title: "News-Portal",
     description: "Ein einfaches News-Portal mit Next.js",

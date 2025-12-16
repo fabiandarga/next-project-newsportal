@@ -448,11 +448,13 @@ Jetzt kannst Du das zuvor erstellte Formular mit der API verbinden. Aktualisiere
 
 ```jsx
 // Aktualisierte onSubmit-Funktion in /app/news/add/page.jsx
+
+const BASE_URL = "http://localhost:3000";
 async function onSubmit(values) {
     setIsSubmitting(true);
 
     try {
-        const response = await fetch("/api/news", {
+        const response = await fetch(BASE_URL + "/api/news", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
