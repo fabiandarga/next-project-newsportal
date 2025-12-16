@@ -86,9 +86,9 @@ import SearchBox from "@/components/SearchBox";
 import Link from "next/link";
 
 // Diese Komponente wird clientseitig gerendert
-export default function HomePage({ initialPosts, categories }) {
+export default function HomePage({ initialArticles, categories }) {
     // State für gefilterte Beiträge
-    const [filteredPosts, setFilteredPosts] = useState(initialPosts);
+    const [filteredArticles, setFilteredArticles] = useState(initialArticles);
     const [searchQuery, setSearchQuery] = useState("");
 
     // Suchfunktion
@@ -97,13 +97,13 @@ export default function HomePage({ initialPosts, categories }) {
 
         if (!query.trim()) {
             // Wenn die Suche leer ist, zeige alle Beiträge
-            setFilteredPosts(initialPosts);
+            setFilteredArticles(initialArticles);
             return;
         }
 
         // Suche in Titel und Inhalt
         const lowercaseQuery = query.toLowerCase();
-        const filtered = initialPosts.filter(
+        const filtered = initialArticles.filter(
             (post) =>
                 post.title.toLowerCase().includes(lowercaseQuery) ||
                 post.excerpt.toLowerCase().includes(lowercaseQuery) ||
@@ -111,7 +111,7 @@ export default function HomePage({ initialPosts, categories }) {
                 post.category.toLowerCase().includes(lowercaseQuery),
         );
 
-        setFilteredPosts(filtered);
+        setFilteredArticles(filtered);
     };
 
     return (
@@ -144,17 +144,17 @@ export default function HomePage({ initialPosts, categories }) {
             {searchQuery && (
                 <div className="mb-6">
                     <p className="text-gray-700">
-                        {filteredPosts.length === 0
+                        {filteredArticles.length === 0
                             ? `Keine Ergebnisse für "${searchQuery}" gefunden.`
-                            : `${filteredPosts.length} Ergebnis${filteredPosts.length !== 1 ? "se" : ""} für "${searchQuery}" gefunden.`}
+                            : `${filteredArticles.length} Ergebnis${filteredArticles.length !== 1 ? "se" : ""} für "${searchQuery}" gefunden.`}
                     </p>
                 </div>
             )}
 
             {/* Nachrichtenliste - Responsive Grid */}
-            {filteredPosts.length > 0 ? (
+            {filteredArticles.length > 0 ? (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {filteredPosts.map((post) => (
+                    {filteredArticles.map((post) => (
                         <NewsCard
                             key={post.id}
                             id={post.id}
@@ -208,16 +208,16 @@ Jetzt aktualisieren wir die Hauptseite, um unsere neue Client-Komponente zu verw
 
 ```jsx
 import HomePage from "@/components/HomePage";
-import { fetchPosts, fetchCategories } from "@/lib/api";
+import { fetchArticles, fetchCategories } from "@/lib/api";
 
 // Diese Komponente wird auf dem Server ausgeführt
 export default async function Home() {
     // Daten von der API abrufen
-    const posts = await fetchPosts();
+    const posts = await fetchArticles();
     const categories = await fetchCategories();
 
     // Server-Komponente rendert Client-Komponente mit initialen Daten
-    return <HomePage initialPosts={posts} categories={categories} />;
+    return <HomePage initialArticles={posts} categories={categories} />;
 }
 ```
 
@@ -235,8 +235,8 @@ import ThemeButton from "@/components/ThemeButton";
 import SearchBox from "@/components/SearchBox";
 import Link from "next/link";
 
-export default function HomePage({ initialPosts, categories }) {
-    const [filteredPosts, setFilteredPosts] = useState(initialPosts);
+export default function HomePage({ initialArticles, categories }) {
+    const [filteredArticles, setFilteredArticles] = useState(initialArticles);
     const [searchQuery, setSearchQuery] = useState("");
     // Neue State für Suchhistorie
     const [searchHistory, setSearchHistory] = useState([]);
@@ -266,13 +266,13 @@ export default function HomePage({ initialPosts, categories }) {
 
         if (!query.trim()) {
             // Wenn die Suche leer ist, zeige alle Beiträge
-            setFilteredPosts(initialPosts);
+            setFilteredArticles(initialArticles);
             return;
         }
 
         // Suche in Titel und Inhalt
         const lowercaseQuery = query.toLowerCase();
-        const filtered = initialPosts.filter(
+        const filtered = initialArticles.filter(
             (post) =>
                 post.title.toLowerCase().includes(lowercaseQuery) ||
                 post.excerpt.toLowerCase().includes(lowercaseQuery) ||
@@ -280,7 +280,7 @@ export default function HomePage({ initialPosts, categories }) {
                 post.category.toLowerCase().includes(lowercaseQuery),
         );
 
-        setFilteredPosts(filtered);
+        setFilteredArticles(filtered);
     };
 
     // Funktion zum Löschen der Suchhistorie
@@ -438,8 +438,8 @@ const getUniqueAuthors = (posts) => {
     return [...new Set(posts.map((post) => post.author))];
 };
 
-export default function HomePage({ initialPosts, categories }) {
-    const [filteredPosts, setFilteredPosts] = useState(initialPosts);
+export default function HomePage({ initialArticles, categories }) {
+    const [filteredArticles, setFilteredArticles] = useState(initialArticles);
     const [searchQuery, setSearchQuery] = useState("");
     const [searchHistory, setSearchHistory] = useState([]);
     const [activeFilters, setActiveFilters] = useState({
@@ -449,14 +449,14 @@ export default function HomePage({ initialPosts, categories }) {
     });
 
     // Eindeutige Autorenliste
-    const authors = getUniqueAuthors(initialPosts);
+    const authors = getUniqueAuthors(initialArticles);
 
     // Erweiterte Suchfunktion
     const handleSearch = (filters) => {
         setActiveFilters(filters);
 
         const { query, category, author } = filters;
-        let filtered = [...initialPosts];
+        let filtered = [...initialArticles];
 
         // Text-Suche
         if (query.trim()) {
@@ -478,7 +478,7 @@ export default function HomePage({ initialPosts, categories }) {
             filtered = filtered.filter((post) => post.author === author);
         }
 
-        setFilteredPosts(filtered);
+        setFilteredArticles(filtered);
     };
 
     // Rest der Komponente...
