@@ -247,7 +247,7 @@ export default async function NewsDetail({ params }) {
         <article className="p-8 max-w-3xl mx-auto">
             <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
 
-            <CategoryLink category={article} />
+            <CategoryLink category={article.category} />
 
             <div className="mb-6 text-gray-500">
                 <span>Von {article.author}</span>
@@ -294,7 +294,7 @@ export default async function CategoryPage({ params }) {
             </div>
 
             {filteredArticles.length === 0 ? (
-                <p>Keine Nachrichten in dieser Kategorie gefunden.</p>
+                <p>Keine Artikel in dieser Kategorie gefunden.</p>
             ) : (
                 <div className="grid gap-6">
                     {filteredArticles.map((article) => (
