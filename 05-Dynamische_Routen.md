@@ -255,12 +255,7 @@ export default async function NewsDetail({ params }) {
             <h1 className="text-3xl font-bold mb-4">{newsItem.title}</h1>
 
             {/* Kategorie anzeigen */}
-            <Link
-                href={`/category/${newsItem.category}`}
-                className="inline-block mb-4 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-            >
-                {newsItem.category}
-            </Link>
+            <CategoryLink category={newsItem.category} />
 
             <div className="mb-6 text-gray-500">
                 <span>Von {newsItem.author}</span>

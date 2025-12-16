@@ -231,12 +231,7 @@ export default function NewsCard({ id, title, excerpt, author, date }) {
                         <span className="mx-1">•</span>
                         <span>{formattedDate}</span>
                     </div>
-
-                    {/* Wir müssen den Like-Button mit einem Div umschließen,
-              damit der Klick auf den Button nicht zur Detailseite führt */}
-                    <div onClick={(e) => e.stopPropagation()}>
-                        <LikeButton />
-                    </div>
+                    <LikeButton />
                 </div>
             </article>
         </Link>

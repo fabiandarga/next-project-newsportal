@@ -31,7 +31,7 @@ Zuerst erstellen wir eine Hilfsdatei, die alle API-bezogenen Funktionen enthält
 const API_BASE_URL = "https://my-json-server.typicode.com/fabiandarga/next-project-newsportal";
 
 // Funktion zum Abrufen aller Beiträge (limitiert auf 10)
-export async function fetchPosts() {
+export async function fetchArticles() {
     try {
         const response = await fetch(`${API_BASE_URL}/data?_limit=10`);
 
@@ -39,9 +39,9 @@ export async function fetchPosts() {
             throw new Error("Fehler beim Laden der Beiträge");
         }
 
-        const posts = await response.json();
+        const articles = await response.json();
 
-        return posts;
+        return articles;
     } catch (error) {
         console.error("API Fehler:", error);
         return [];
@@ -49,7 +49,7 @@ export async function fetchPosts() {
 }
 
 // Funktion zum Abrufen eines einzelnen Beitrags nach ID
-export async function fetchPost(id) {
+export async function fetchArticle(id) {
     try {
         const response = await fetch(`${API_BASE_URL}/data/${id}`);
 
@@ -57,9 +57,9 @@ export async function fetchPost(id) {
             throw new Error("Beitrag nicht gefunden");
         }
 
-        const post = await response.json();
+        const article = await response.json();
 
-        return post;
+        return article;
     } catch (error) {
         console.error("API Fehler:", error);
         return null;
@@ -67,15 +67,15 @@ export async function fetchPost(id) {
 }
 
 // Funktion zum Abrufen von Beiträgen nach Kategorie
-export async function fetchPostsByCategory(category) {
-    const allPosts = await fetchPosts();
-    return allPosts.filter((post) => post.category === category);
+export async function fetchArticlesByCategory(category) {
+    const allArticles = await fetchArticles();
+    return allArticles.filter((article) => article.category === category);
 }
 
 // Funktion zum Abrufen aller verfügbaren Kategorien
 export async function fetchCategories() {
-    const posts = await fetchPosts();
-    const categories = [...new Set(posts.map((post) => post.category))];
+    const articles = await fetchArticles();
+    const categories = [...new Set(articles.map((article) => article.category))];
     return categories;
 }
 ```
@@ -91,12 +91,12 @@ Jetzt aktualisieren wir die Startseite, um Daten von der API anzuzeigen:
 import NewsCard from "@/components/NewsCard";
 import ThemeButton from "@/components/ThemeButton";
 import Link from "next/link";
-import { fetchPosts, fetchCategories } from "@/lib/api";
+import { fetchArticles, fetchCategories } from "@/lib/api";
 
 // Diese Komponente wird auf dem Server ausgeführt
 export default async function Home() {
     // Daten von der API abrufen
-    const posts = await fetchPosts();
+    const articles = await fetchArticles();
     const categories = await fetchCategories();
 
     return (
@@ -124,15 +124,15 @@ export default async function Home() {
 
             {/* Nachrichtenliste */}
             <div className="grid gap-6">
-                {posts.map((post) => (
+                {articles.map((article) => (
                     <NewsCard
-                        key={post.id}
-                        id={post.id}
-                        title={post.title}
-                        excerpt={post.excerpt}
-                        author={post.author}
-                        date={post.date}
-                        category={post.category}
+                        key={article.id}
+                        id={article.id}
+                        title={article.title}
+                        excerpt={article.excerpt}
+                        author={article.author}
+                        date={article.date}
+                        category={article.category}
                     />
                 ))}
             </div>
@@ -220,13 +220,13 @@ Jetzt aktualisieren wir die Detailseite, um Daten von der API abzurufen:
 2. Ersetze den Inhalt mit folgendem Code:
 
 ```jsx
-import { fetchPost } from "@/lib/api";
+import { fetchArticle } from "@/lib/api";
 import Link from "next/link";
 
 export default async function NewsDetail({ params }) {
-    const post = await fetchPost(params.id);
+    const article = await fetchArticle(params.id);
 
-    if (!post) {
+    if (!article) {
         return (
             <div className="p-8">
                 <h1 className="text-2xl font-bold mb-4">Artikel nicht gefunden</h1>
@@ -237,7 +237,7 @@ export default async function NewsDetail({ params }) {
         );
     }
 
-    const formattedDate = new Date(post.date).toLocaleDateString("de-DE", {
+    const formattedDate = new Date(article.date).toLocaleDateString("de-DE", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -245,22 +245,17 @@ export default async function NewsDetail({ params }) {
 
     return (
         <article className="p-8 max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+            <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
 
-            <Link
-                href={`/category/${post.category}`}
-                className="inline-block mb-4 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-            >
-                {post.category}
-            </Link>
+            <CategoryLink category={article} />
 
             <div className="mb-6 text-gray-500">
-                <span>Von {post.author}</span>
+                <span>Von {article.author}</span>
                 <span className="mx-1">•</span>
                 <span>{formattedDate}</span>
             </div>
 
-            <p className="text-gray-700 mb-6 leading-relaxed">{post.content}</p>
+            <p className="text-gray-700 mb-6 leading-relaxed">{article.content}</p>
 
             <Link href="/" className="text-blue-500 hover:underline">
                 ← Zurück zur Übersicht
@@ -278,7 +273,7 @@ Jetzt aktualisieren wir auch die Kategorieseite:
 2. Ersetze den Inhalt mit folgendem Code:
 
 ```jsx
-import { fetchPostsByCategory } from "@/lib/api";
+import { fetchArticlesByCategory } from "@/lib/api";
 import NewsCard from "@/components/NewsCard";
 import Link from "next/link";
 
@@ -287,7 +282,7 @@ export default async function CategoryPage({ params }) {
     const { category } = params;
 
     // Filtere Nachrichten nach Kategorie
-    const filteredPosts = await fetchPostsByCategory(category);
+    const filteredArticles = await fetchArticlesByCategory(category);
 
     return (
         <main className="p-8">
@@ -298,19 +293,19 @@ export default async function CategoryPage({ params }) {
                 </Link>
             </div>
 
-            {filteredPosts.length === 0 ? (
+            {filteredArticles.length === 0 ? (
                 <p>Keine Nachrichten in dieser Kategorie gefunden.</p>
             ) : (
                 <div className="grid gap-6">
-                    {filteredPosts.map((post) => (
+                    {filteredArticles.map((article) => (
                         <NewsCard
-                            key={post.id}
-                            id={post.id}
-                            title={post.title}
-                            excerpt={post.excerpt}
-                            author={post.author}
-                            date={post.date}
-                            category={post.category}
+                            key={article.id}
+                            id={article.id}
+                            title={article.title}
+                            excerpt={article.excerpt}
+                            author={article.author}
+                            date={article.date}
+                            category={article.category}
                         />
                     ))}
                 </div>
@@ -377,21 +372,21 @@ import NewsCard from "@/components/NewsCard";
 import ThemeButton from "@/components/ThemeButton";
 import SearchBox from "@/components/SearchBox";
 import Link from "next/link";
-import { fetchPosts, fetchCategories } from "@/lib/api";
+import { fetchArticles, fetchCategories } from "@/lib/api";
 
 export default function Home() {
-    const [posts, setPosts] = useState([]);
-    const [filteredPosts, setFilteredPosts] = useState([]);
+    const [articles, setArticles] = useState([]);
+    const [filteredArticles, setFilteredArticles] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function loadData() {
-            const postsData = await fetchPosts();
+            const articlesData = await fetchArticles();
             const categoriesData = await fetchCategories();
 
-            setPosts(postsData);
-            setFilteredPosts(postsData);
+            setArticles(articlesData);
+            setFilteredArticles(articlesData);
             setCategories(categoriesData);
             setLoading(false);
         }
@@ -401,17 +396,17 @@ export default function Home() {
 
     const handleSearch = (query) => {
         if (!query.trim()) {
-            setFilteredPosts(posts);
+            setFilteredArticles(articles);
             return;
         }
 
         const lowercaseQuery = query.toLowerCase();
-        const filtered = posts.filter(
-            (post) =>
-                post.title.toLowerCase().includes(lowercaseQuery) ||
-                post.excerpt.toLowerCase().includes(lowercaseQuery),
+        const filtered = articles.filter(
+            (article) =>
+                article.title.toLowerCase().includes(lowercaseQuery) ||
+                article.excerpt.toLowerCase().includes(lowercaseQuery),
         );
-        setFilteredPosts(filtered);
+        setFilteredArticles(filtered);
     };
 
     if (loading) {
@@ -444,16 +439,16 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6">
-                {filteredPosts.length > 0 ? (
-                    filteredPosts.map((post) => (
+                {filteredArticles.length > 0 ? (
+                    filteredArticles.map((article) => (
                         <NewsCard
-                            key={post.id}
-                            id={post.id}
-                            title={post.title}
-                            excerpt={post.excerpt}
-                            author={post.author}
-                            date={post.date}
-                            category={post.category}
+                            key={article.id}
+                            id={article.id}
+                            title={article.title}
+                            excerpt={article.excerpt}
+                            author={article.author}
+                            date={article.date}
+                            category={article.category}
                         />
                     ))
                 ) : (
